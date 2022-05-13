@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<main>
+    <h2>
+        {% if current_user.is_authenticated %}
+            Welcome,  {{ current_user.first_name }} {{ current_user.last_name }}
+        {% endif %}
+    </h2>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid mt-4">
+            <div class="container">
+                <h1 class="display-4">Welcome to the Poke LIBRARY</h1>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ullam in pariatur
+                    nihil eos atque, quae maiores asperiores? Voluptate dolor sit, provident nesciunt odit aliquid
+                    architecto corrupti praesentium cupiditate dolore.</p>
+                <hr class="my-4">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, assumenda! Quisquam ad
+                    aspernatur tenetur expedita quibusdam laborum velit quidem a!</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Explore More</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">What's Around The Corner</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
+                            tenetur.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Recent News</h5>
+                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta corrupti,
+                            at hic voluptate ipsa error.</p>
+                        <a href="#" class="btn btn-primary">Explore Pokemon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock content %}
+

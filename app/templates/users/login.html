@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h3>Login</h3>
+<hr >
+<form method="POST" action="{{ url_for ('login') }}" >
+    <div class="form-group">
+      <input type="email" name="email"  class="form-control" placeholder="user@domain.com" aria-describedby="helpId">
+    </div>
+    <div class="form-group">
+      <input type="password" name="password" class="form-control" placeholder="Enter Password" aria-describedby="helpId">
+    </div>
+    <div class="form-check">
+      <div class="form-group">
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="remember_me" value="checkedValue">
+            Remember Me
+        </label> 
+      </div>
+    </div>
+    <input type="submit" class="btn btn-dark btn-block" value="Sign In" >
+</form>
+<hr class="pb-5">
+
+
+{% endblock content %}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKE | LIBRARY</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!--  BEGIN HEADER -->
+    <header>
+
+        {% include 'snippets/navigation.html' %}
+
+    </header>
+    <!-- END OF HEADER -->
+    <!-- BEGIN OF MAIN -->
+    <main>
+
+        <div class="container pt-5">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, m in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <strong>{{ m }}</strong>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}
+            {% endblock content %}
+        </div>
+
+    </main>
+    <!-- END OF MAIN -->
+    <!-- BEGIN FOOTER -->
+    <footer class="bg-warning">
+
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-4">
+                    <h3>The Poke Company</h3>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="nav-link text-dark" href="#">Whats New</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="#">Our Service</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="#">Discover</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="#">Research</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="#">Learn More</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-7 offset-1">
+                    <div class="form-group mt-2">
+                        <input type="text" name="poke_search" id="poke_search" class="form-control"
+                            placeholder="Search Our Pokedeck" aria-describedby="helpId">
+                        <input class="btn btn-dark btn-block mt-2" type="submit">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+    <!-- END OF FOOTER -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+        {{ moment.include_moment() }}
+</body>
+
+</html>

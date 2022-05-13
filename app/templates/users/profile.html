@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-10">
+        <form>
+            <div class="form-group mt-3">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control bg-dark text-white" name="first_name" id="first_name" value="{{ current_user.first_name }}" aria-describedby="helpId" placeholder="First Name">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control bg-dark text-white" name="last_name" id="last_name" value="{{ current_user.last_name }}" aria-describedby="helpId" placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="form-group">
+            <input type="email" name="email" id="email" class="form-control bg-dark text-white" value="{{ current_user.email  }}" placeholder="Enter Email"
+                aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" id="paswword" class="form-control bg-dark text-white" placeholder="Enter Password"
+                aria-describedby="helpId">
+        </div>
+        <div class="form-group">
+            <input type="password" name="confirm_password" id="confirm_password" class="form-control bg-dark text-white"
+                placeholder="Enter Password" aria-describedby="helpId">
+        </div>
+        <input type="submit" class="btn btn-warning btn-block" value="Update" />
+    </div>
+    <div class="col-2 mt-3">
+        <img class="img-fluid" src="https://via.placeholder.com/500x700&text=ProfilePic" alt="Profile Picture">
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-12">
+        <form method="POST">
+            <div class="row">
+                <div class="col-10">
+                    <div class="form-group">
+                        <input type="text" class="form-control bg-dark text-white" name="poke_post" id="poke_post"
+                            aria-describedby="helpId" placeholder="Enter your Pokemon">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <button class="btn btn-warning btn-block" type="submit">Post</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <ul class="list-group">
+            {% for post in posts %}
+                <li class="list-group-item mb-4"> Looking for a Pokemon
+                    <div>
+                        <small>
+                             &mdash; Ash Ketchem
+                            <span class="float-right">
+                                {{ moment(post.date_created).fromNow() }}
+                            </span>
+                        </small>
+                    </div>
+                </li>
+            {% endfor %}    
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}
